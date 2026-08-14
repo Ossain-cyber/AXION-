@@ -1,3 +1,6 @@
 Date: December 15, 2026
 Venue: Lagos, Nigeria
 Tickets: ₦5,000
+Date2: January 20, 2027
+Venue2: Abuja, Nigeria
+Tickets2: ₦7,000
