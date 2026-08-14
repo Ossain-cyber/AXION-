@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="AXION — Official artist website. Music, videos, events and contact.">
+<meta name="author" content="Hussain">
+<title>AXION — Sound & Vibe</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+  --primary:#8b5cf6;--primary2:#6366f1;--accent:#ec4899;--green:#25d366;
+  --bg:#080808;--bg2:#101010;--card:#151515;--white:#fff;--text:#f5f5f5;
+  --muted:#999;--border:rgba(255,255,255,.09);--radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Space Grotesk",sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+a{color:inherit}button,input{font:inherit}button{cursor:pointer}
+.background{position:fixed;inset:0;z-index:-10;overflow:hidden;background:
+radial-gradient(circle at 10% 15%,rgba(99,102,241,.16),transparent 32%),
+radial-gradient(circle at 90% 20%,rgba(236,72,153,.11),transparent 30%),
+radial-gradient(circle at 50% 100%,rgba(139,92,246,.12),transparent 35%),var(--bg)}
+.orb{position:absolute;border-radius:50%;filter:blur(85px);opacity:.14;animation:float 13s ease-in-out infinite alternate}
+.orb.one{width:280px;height:280px;background:var(--primary);top:10%;left:-120px}
+.orb.two{width:230px;height:230px;background:var(--accent);right:-100px;top:45%;animation-delay:-4s}
+.orb.three{width:250px;height:250px;background:#2563eb;left:45%;bottom:-130px;animation-delay:-7s}
+@keyframes float{to{transform:translate3d(35px,-45px,0)}}
+
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(8,8,8,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-inner{width:min(1200px,calc(100% - 32px));min-height:70px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.4rem;font-weight:700}
+.logo-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 8px 25px rgba(139,92,246,.25)}
+.nav-links{display:flex;align-items:center;gap:25px}
+.nav-links a{text-decoration:none;color:#ccc;font-size:.92rem;transition:.25s}
+.nav-links a:hover{color:#fff}
+.nav-ticket{padding:10px 16px;border-radius:999px;background:#fff;color:#111!important;font-weight:600}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--border);border-radius:12px;background:var(--card);color:#fff}
+
+.hero{min-height:calc(100vh - 70px);width:min(1200px,calc(100% - 32px));margin:auto;display:grid;place-items:center;text-align:center;padding:80px 0}
+.hero-content{max-width:900px}
+.artist-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);background:rgba(255,255,255,.04);border-radius:999px;color:#ccc;font-size:.82rem;margin-bottom:22px}
+.artist-badge span{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px #22c55e}
+.hero h1{font-size:clamp(4rem,14vw,10rem);line-height:.82;letter-spacing:-8px;margin-bottom:28px;background:linear-gradient(135deg,#fff 10%,#c4b5fd 50%,#f9a8d4 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:650px;margin:auto;font-size:1.08rem;line-height:1.75}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{min-height:50px;padding:0 21px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;border:1px solid var(--border);transition:.25s;font-weight:600}
+.btn-primary{background:#fff;color:#111}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(255,255,255,.12)}
+.btn-dark{background:rgba(255,255,255,.05);color:#fff}.btn-dark:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+.btn-purple{background:linear-gradient(135deg,var(--primary),var(--accent));border:0;color:#fff}
+
+section{width:min(1200px,calc(100% - 32px));margin:auto;padding:90px 0}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.section-heading h2{font-size:clamp(2rem,5vw,3.3rem);letter-spacing:-2px}
+.section-heading p{color:var(--muted);margin-top:7px;line-height:1.6}
+.section-label{color:#a78bfa;text-transform:uppercase;font-size:.72rem;font-weight:700;letter-spacing:2px;margin-bottom:8px}
+
+.artist-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px;align-items:stretch}
+.artist-photo{min-height:480px;border:1px solid var(--border);border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#181222,#101010);position:relative}
+.artist-photo img{width:100%;height:100%;display:block;object-fit:cover}
+.artist-photo .photo-placeholder{height:100%;min-height:480px;display:grid;place-items:center;color:#777;text-align:center;padding:30px}
+.artist-photo .photo-placeholder i{font-size:3rem;margin-bottom:12px;display:block}
+.bio-card{padding:35px;border:1px solid var(--border);border-radius:28px;background:rgba(255,255,255,.035);display:flex;flex-direction:column;justify-content:center}
+.bio-card h3{font-size:clamp(2rem,4vw,3rem);margin-bottom:18px}
+.bio-card p{color:#b1b1b1;line-height:1.9;font-size:1rem;margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:5px}
+.tag{padding:9px 12px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.04);font-size:.78rem;color:#ccc}
+
+.search-wrap{position:relative;margin-bottom:28px}
+.search-wrap i{position:absolute;left:17px;top:50%;transform:translateY(-50%);color:#777}
+.search-input{width:100%;height:52px;padding:0 20px 0 48px;background:rgba(255,255,255,.045);border:1px solid var(--border);border-radius:14px;outline:0;color:#fff}
+.search-input:focus{border-color:rgba(139,92,246,.6);box-shadow:0 0 0 4px rgba(139,92,246,.08)}
+.search-input::placeholder{color:#666}
+
+.music-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.music-card{background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid var(--border);border-radius:var(--radius);padding:13px;transition:.3s;overflow:hidden}
+.music-card:hover{transform:translateY(-5px);border-color:rgba(139,92,246,.4)}
+.cover{height:220px;border-radius:14px;overflow:hidden;position:relative;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent))}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 65%);pointer-events:none}
+.cover-number{font-size:5rem;font-weight:700;color:rgba(255,255,255,.14);z-index:1}
+.cover-play{position:absolute;z-index:3;bottom:12px;right:12px;width:48px;height:48px;border:0;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center}
+.track-info{padding:14px 3px 3px}.track-title{font-size:1.05rem;font-weight:600;margin-bottom:4px}.track-artist{color:var(--muted);font-size:.83rem}
+.track-actions{display:flex;gap:7px;margin-top:13px}.track-btn{height:40px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:#fff;border-radius:10px;flex:1;display:flex;align-items:center;justify-content:center;gap:7px;font-size:.8rem}
+.track-btn:hover{background:rgba(255,255,255,.1)}
+.empty{grid-column:1/-1;padding:70px 25px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:var(--radius)}
+.empty i{font-size:2.2rem;margin-bottom:15px;opacity:.45;display:block}.empty h3{color:#ddd;margin-bottom:7px}.empty p{line-height:1.6}
+
+.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.platform{padding:23px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.035);text-decoration:none;display:flex;align-items:center;gap:15px;transition:.25s}
+.platform:hover{transform:translateY(-4px);background:rgba(255,255,255,.07)}
+.platform i{font-size:1.5rem;width:42px;text-align:center}.platform strong{display:block}.platform small{display:block;color:#777;margin-top:4px}
+
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.video-card{overflow:hidden;border:1px solid var(--border);background:var(--card);border-radius:var(--radius)}
+.video-wrapper{aspect-ratio:16/9;background:#050505;position:relative}
+.video-wrapper video{width:100%;height:100%;display:block;object-fit:cover}
+.video-info{padding:17px}.video-info h3{font-size:1.05rem;margin-bottom:5px}.video-info p{color:var(--muted);font-size:.82rem}
+.video-empty{padding:50px;text-align:center;color:var(--muted)}
+
+.ticket-box{padding:clamp(28px,6vw,60px);border-radius:28px;border:1px solid var(--border);background:radial-gradient(circle at top right,rgba(139,92,246,.25),transparent 40%),linear-gradient(135deg,#17131f,#101010);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.ticket-box h3{font-size:clamp(2rem,5vw,3.6rem);letter-spacing:-2px;margin-bottom:10px}.ticket-box>p{color:var(--muted);max-width:650px;line-height:1.7}
+.ticket-info{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.ticket-item{padding:18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--border)}
+.ticket-item i{color:#a78bfa;margin-bottom:10px}.ticket-item span{display:block;color:var(--muted);font-size:.75rem;margin-bottom:4px}.ticket-item strong{font-size:.95rem}
+.whatsapp{background:var(--green);color:#fff;border:0}.whatsapp:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(37,211,102,.2)}
+
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.contact-card{padding:30px;border-radius:var(--radius);border:1px solid var(--border);background:rgba(255,255,255,.035)}
+.contact-card h3{font-size:1.5rem;margin-bottom:10px}.contact-card p{color:var(--muted);line-height:1.7;margin-bottom:20px}
+.contact-buttons{display:flex;gap:10px;flex-wrap:wrap}
+.contact-number{display:inline-flex;align-items:center;gap:8px;color:#bbb;margin-top:14px;font-size:.86rem}
+
+footer{border-top:1px solid var(--border);background:rgba(255,255,255,.02);padding:55px 16px 35px;text-align:center}
+.footer-logo{font-size:1.6rem;font-weight:700;margin-bottom:15px}.footer-socials{display:flex;justify-content:center;gap:9px;margin:22px 0}
+.footer-socials a{width:43px;height:43px;border:1px solid var(--border);border-radius:50%;display:grid;place-items:center;text-decoration:none;color:#bbb;transition:.25s}
+.footer-socials a:hover{color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.footer-credit{color:#777;font-size:.82rem;line-height:1.7}.footer-credit a{color:#b8a4ff;text-decoration:none}.footer-contact{margin-top:10px;color:#999;font-size:.8rem}
+
+.player{position:fixed;z-index:2000;left:16px;right:16px;bottom:15px;max-width:1050px;margin:auto;background:rgba(20,20,20,.94);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(25px);border-radius:18px;padding:12px 16px;display:none;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.player.show{display:grid}.player-track{display:flex;align-items:center;gap:11px;min-width:0}.player-cover{width:48px;height:48px;flex:0 0 48px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));overflow:hidden}.player-cover img{width:100%;height:100%;object-fit:cover}
+.player-text{min-width:0}.player-title{font-size:.86rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.player-artist{color:#888;font-size:.72rem;margin-top:2px}
+.player-controls{display:flex;align-items:center;gap:15px}.player-controls button{border:0;background:none;color:#fff;font-size:1rem}.player-controls .main-play{width:42px;height:42px;border-radius:50%;background:#fff;color:#111}
+.player-extra{display:flex;justify-content:flex-end;align-items:center;gap:12px}.volume{width:90px;accent-color:var(--primary)}
+
+.toast{position:fixed;z-index:5000;left:50%;bottom:100px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#fff;color:#111;padding:11px 16px;border-radius:999px;font-size:.82rem;font-weight:600;transition:.3s;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+.loader{position:fixed;inset:0;z-index:9999;background:#080808;display:grid;place-items:center;transition:.5s}.loader.hidden{opacity:0;visibility:hidden}.loader-inner{text-align:center}.loader-logo{width:65px;height:65px;margin:auto auto 15px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));font-size:1.7rem;animation:pulse 1.3s ease-in-out infinite}.loader-inner strong{font-size:1.2rem}
+@keyframes pulse{50%{transform:scale(.9);box-shadow:0 0 35px rgba(139,92,246,.4)}}
+
+@media(max-width:900px){
+  .music-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}
+  .artist-layout{grid-template-columns:1fr}.artist-photo{min-height:400px}.artist-photo .photo-placeholder{min-height:400px}
+  .platforms{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .nav-inner{min-height:64px}.menu-btn{display:grid;place-items:center}
+  .nav-links{position:fixed;inset:64px 0 auto 0;padding:25px 20px 30px;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:none;flex-direction:column;align-items:stretch;gap:5px}
+  .nav-links.open{display:flex}.nav-links a{padding:15px;border-radius:10px}.nav-ticket{text-align:center}
+  .hero{min-height:80vh;padding:60px 0}.hero h1{letter-spacing:-5px}section{padding:65px 0}.section-heading{display:block}
+  .music-grid,.video-grid,.platforms{grid-template-columns:1fr}.cover{height:250px}.ticket-info{grid-template-columns:1fr}
+  .player{grid-template-columns:1fr auto;gap:10px;padding:10px;bottom:8px;left:8px;right:8px}.player-extra{display:none}.player-controls{gap:10px}.player-controls .skip{display:none}
+}
+@media(max-width:400px){.hero-actions .btn{width:100%}.track-actions .track-btn span{display:none}.track-actions .track-btn{flex:0 0 42px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+
+<body>
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo"><i class="fas fa-music"></i></div>
+    <strong>AXION</strong>
+  </div>
+</div>
+
+<div class="background"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div></div>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo"><span class="logo-mark"><i class="fas fa-music"></i></span>AXION</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#music">Music</a>
+      <a href="#videos">Videos</a><a href="#events">Events</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="artist-badge"><span></span> Official AXION</div>
+    <h1>AXION</h1>
+    <p>Energetic sounds shaped by real-life experiences, hardship on the streets and a passion for Afrobeat, R&B and Amapiano vibes.</p>
+    <div class="hero-actions">
+      <a href="#music" class="btn btn-primary"><i class="fas fa-headphones"></i> Explore Music</a>
+      <a href="#contact" class="btn btn-dark"><i class="fab fa-whatsapp"></i> Contact AXION</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-heading">
+    <div><div class="section-label">The Artist</div><h2>Meet AXION</h2><p>A sound built from experience, energy and the streets.</p></div>
+  </div>
+  <div class="artist-layout">
+    <div class="artist-photo" id="artistPhoto">
+      <div class="photo-placeholder"><div><i class="fas fa-user"></i><p>Artist photo loading</p></div></div>
+    </div>
+    <div class="bio-card">
+      <div class="section-label">About AXION</div>
+      <h3>Real life.<br>Real sound.</h3>
+      <p>AXION, whose real name is Shedrack Danjuma, creates music inspired by real-life events and experiences, including hardship on the streets. His sound carries an energetic character with Afrobeat blended with R&B and Amapiano vibes.</p>
+      <div class="tags"><span class="tag">Afrobeat</span><span class="tag">R&B</span><span class="tag">Amapiano</span><span class="tag">Energetic Sounds</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="music">
+  <div class="section-heading">
+    <div><div class="section-label">Listen</div><h2>Music</h2><p>Experience the sound of AXION.</p></div>
+  </div>
+  <div class="search-wrap">
+    <i class="fas fa-search"></i>
+    <input type="search" class="search-input" id="musicSearch" placeholder="Search tracks..." autocomplete="off">
+  </div>
+  <div class="music-grid" id="musicGrid"></div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <div><div class="section-label">Stream</div><h2>Find AXION</h2><p>Follow and stream AXION on all platforms.</p></div>
+  </div>
+  <div class="platforms">
+    <a class="platform" href="https://www.instagram.com/axion_is_action243" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><small>@axion_is_action243</small></div></a>
+    <a class="platform" href="https://www.tiktok.com/@iam_axion.247" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i><div><strong>TikTok</strong><small>@iam_axion.247</small></div></a>
+    <a class="platform" href="https://www.facebook.com/AxionRhythmz" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i><div><strong>Facebook</strong><small>Axion Rhythmz</small></div></a>
+    <a class="platform" href="https://www.youtube.com/@AxionRhythmzActive-j9y" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i><div><strong>YouTube</strong><small>Axion Rhythmz Active</small></div></a>
+    <a class="platform" href="https://audiomack.com/axion-rhythmz" target="_blank" rel="noopener noreferrer"><i class="fas fa-headphones"></i><div><strong>Audiomack</strong><small>AXION Rhythmz</small></div></a>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="section-heading">
+    <div><div class="section-label">Watch</div><h2>Videos</h2><p>Watch AXION's latest visuals.</p></div>
+  </div>
+  <div class="video-grid" id="videoGrid"></div>
+</section>
+
+<section id="events">
+  <div class="section-heading">
+    <div><div class="section-label">Live</div><h2>Events</h2><p>Stay updated with AXION's live performances.</p></div>
+  </div>
+  <div class="ticket-box">
+    <h3>AXION Live</h3>
+    <p>For ticket enquiries, availability and future event updates, contact the AXION team directly on WhatsApp.</p>
+    <div class="ticket-info" id="eventInfo">
+      <div class="ticket-item"><i class="fas fa-calendar"></i><span>Date</span><strong id="eventDate">Coming Soon</strong></div>
+      <div class="ticket-item"><i class="fas fa-location-dot"></i><span>Venue</span><strong id="eventVenue">To Be Announced</strong></div>
+      <div class="ticket-item"><i class="fas fa-ticket"></i><span>Tickets</span><strong id="eventTickets">Contact Team</strong></div>
+    </div>
+    <a class="btn whatsapp" id="ticketWhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Ticket Enquiries</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-heading">
+    <div><div class="section-label">Connect</div><h2>Let's Connect</h2><p>For enquiries, bookings, partnerships and opportunities.</p></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Contact AXION</h3>
+      <p>Reach AXION's team directly through WhatsApp for enquiries, bookings, ticket information and other opportunities.</p>
+      <div class="contact-buttons">
+        <a class="btn whatsapp" id="generalWhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp AXION</a>
+      </div>
+      <div class="contact-number"><i class="fas fa-phone"></i> +234 814 245 8430</div>
+    </div>
+    <div class="contact-card">
+      <h3>Need a Website?</h3>
+      <p>Modern responsive websites for artists, brands, businesses and events.</p>
+      <div class="contact-buttons">
+        <a href="https://www.facebook.com/lawal.hussain001" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://wa.me/2349058562478" target="_blank" rel="noopener noreferrer" class="btn btn-purple"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="contact-number"><i class="fas fa-code"></i> Hussain / Rabbi</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="player" id="player">
+  <div class="player-track">
+    <div class="player-cover" id="playerCover"><i class="fas fa-music"></i></div>
+    <div class="player-text"><div class="player-title" id="playerTitle">Nothing playing</div><div class="player-artist" id="playerArtist">AXION</div></div>
+  </div>
+  <div class="player-controls">
+    <button id="prevBtn" aria-label="Previous"><i class="fas fa-backward-step"></i></button>
+    <button class="main-play" id="mainPlayBtn" aria-label="Play"><i class="fas fa-play"></i></button>
+    <button id="nextBtn" aria-label="Next"><i class="fas fa-forward-step"></i></button>
+  </div>
+  <div class="player-extra">
+    <i class="fas fa-volume-low"></i>
+    <input class="volume" id="volumeControl" type="range" min="0" max="1" step=".01" value=".8">
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="footer-logo">AXION</div>
+  <p style="color:#888">Music. Energy. Experience.</p>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/axion_is_action243" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@iam_axion.247" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.youtube.com/@AxionRhythmzActive-j9y" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://audiomack.com/axion-rhythmz" target="_blank" rel="noopener noreferrer" aria-label="Audiomack"><i class="fas fa-headphones"></i></a>
+    <a href="https://www.facebook.com/AxionRhythmz" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+  </div>
+  <div class="footer-credit">
+    <p>© <span id="year"></span> AXION. All rights reserved.</p>
+    <p style="margin-top:8px">Website by <a href="https://www.facebook.com/lawal.hussain001" target="_blank" rel="noopener noreferrer">Hussain</a>.</p>
+    <p class="footer-contact">Need a site? <a href="https://www.facebook.com/lawal.hussain001" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://wa.me/2349058562478" target="_blank" rel="noopener noreferrer">WhatsApp +234 905 856 2478</a></p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   AXION WEBSITE - Full Media Manager
+   
+   FILE NAMING GUIDE:
+   ──────────────────
+   PHOTOS:  image.jpg, image1.jpg, image2.jpg (for artist)
+   AUDIO:   ANYNAME.mp3 (track title from filename)
+   COVERS:  Same name as audio (Basquiat.mp3 + Basquiat.jpg)
+            OR cover1.jpg, cover2.jpg, cover3.jpg
+   VIDEO:   ANYNAME.mp4 (video title from filename)
+   EVENTS:  event.txt (auto-loads event details)
+   
+   EXAMPLES:
+   ─────────
+   Basquiat.mp3  +  Basquiat.jpg  → Shows "Basquiat" with its cover
+   Energy.mp3    +  Energy.jpg    → Shows "Energy" with its cover
+   ggnt.mp3      +  image.jpg     → Uses image.jpg as fallback
+========================================================= */
+
+const MEDIA_FILES = {
+  images: ["image.jpg","image.jpeg","image.png","image1.jpg","image1.jpeg","image1.png","image2.jpg","image2.jpeg","image2.png","image3.jpg","image3.jpeg","image3.png","image4.jpg","image4.jpeg","image4.png"],
+  audio: [],
+  video: []
+};
+
+const AXION_WHATSAPP = "2348142458430";
+
+const $ = id => document.getElementById(id);
+const loader = $("loader");
+const navLinks = $("navLinks");
+const menuBtn = $("menuBtn");
+const musicGrid = $("musicGrid");
+const videoGrid = $("videoGrid");
+const artistPhoto = $("artistPhoto");
+const musicSearch = $("musicSearch");
+const player = $("player");
+const playerTitle = $("playerTitle");
+const playerArtist = $("playerArtist");
+const playerCover = $("playerCover");
+const mainPlayBtn = $("mainPlayBtn");
+const volumeControl = $("volumeControl");
+const toast = $("toast");
+
+let tracks = [];
+let currentIndex = -1;
+let currentAudio = null;
+let globalCoverImage = null;
+
+function whatsapp(message){
+  return `https://wa.me/${AXION_WHATSAPP}?text=${encodeURIComponent(message)}`;
+}
+
+$("ticketWhatsApp").href = whatsapp("Hello AXION team, I want to make a ticket enquiry. Please send me the available information. Thank you.");
+$("generalWhatsApp").href = whatsapp("Hello AXION team, I would like to make an enquiry about AXION. Thank you.");
+
+function showToast(text){
+  toast.textContent = text;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(()=>toast.classList.remove("show"),2400);
+}
+
+menuBtn.addEventListener("click",()=>{
+  navLinks.classList.toggle("open");
+  menuBtn.querySelector("i").className = navLinks.classList.contains("open") ? "fas fa-xmark" : "fas fa-bars";
+});
+
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{
+  navLinks.classList.remove("open");
+  menuBtn.querySelector("i").className="fas fa-bars";
+}));
+
+async function fileExists(path){
+  try{
+    const response = await fetch(path,{method:"HEAD",cache:"no-store"});
+    return response.ok;
+  }catch{
+    return false;
+  }
+}
+
+async function scanAudioFiles(){
+  const commonPatterns = [
+    "audio.mp3", "audio1.mp3", "audio2.mp3", "audio3.mp3",
+    "audio4.mp3", "audio5.mp3", "audio6.mp3", "audio7.mp3",
+    "audio8.mp3", "audio9.mp3", "audio10.mp3"
+  ];
+  
+  const found = [];
+  
+  for(const file of commonPatterns){
+    if(await fileExists(file)) found.push(file);
+  }
+  
+  if(found.length === 0){
+    const genericNames = ["music.mp3", "song.mp3", "track.mp3"];
+    for(const file of genericNames){
+      if(await fileExists(file)) found.push(file);
+    }
+  }
+  
+  return found;
+}
+
+async function scanVideoFiles(){
+  const commonPatterns = [
+    "video.mp4", "video1.mp4", "video2.mp4", "video3.mp4",
+    "video4.mp4", "video5.mp4", "video6.mp4", "video7.mp4"
+  ];
+  
+  const found = [];
+  for(const file of commonPatterns){
+    if(await fileExists(file)) found.push(file);
+  }
+  
+  if(found.length === 0){
+    const genericNames = ["visual.mp4", "music-video.mp4", "vid.mp4"];
+    for(const file of genericNames){
+      if(await fileExists(file)) found.push(file);
+    }
+  }
+  
+  return found;
+}
+
+function getTrackTitle(filename){
+  let title = filename.replace(/\.[^/.]+$/, "");
+  title = title.replace(/[_-]/g, " ");
+  title = title.replace(/\b\w/g, l => l.toUpperCase());
+  if(title.toLowerCase().match(/^audio\d*$/)) {
+    const num = title.match(/\d+$/);
+    title = num ? `Track ${num[0]}` : "Track";
+  }
+  if(title.toLowerCase().match(/^video\d*$/)) {
+    const num = title.match(/\d+$/);
+    title = num ? `Video ${num[0]}` : "Video";
+  }
+  return title;
+}
+
+async function findFirstImage(){
+  for(const file of MEDIA_FILES.images){
+    if(await fileExists(file)) return file;
+  }
+  return null;
+}
+
+async function loadArtistImage(){
+  const file = await findFirstImage();
+  if(!file) return;
+  globalCoverImage = file;
+  artistPhoto.innerHTML = `<img src="${file}" alt="AXION">`;
+}
+
+async function findCoverForTrack(audioFile, trackIndex){
+  const baseName = audioFile.replace(/\.[^/.]+$/, "");
+  
+  // Try matching filename first (Basquiat.mp3 -> Basquiat.jpg)
+  const matchingExtensions = [".jpg", ".jpeg", ".png"];
+  for(const ext of matchingExtensions){
+    const coverFile = baseName + ext;
+    if(await fileExists(coverFile)) return coverFile;
+  }
+  
+  // Try numbered covers (cover1.jpg, cover2.jpg, etc.)
+  const numberedCovers = [
+    `cover${trackIndex + 1}.jpg`,
+    `cover${trackIndex + 1}.jpeg`,
+    `cover${trackIndex + 1}.png`
+  ];
+  for(const coverFile of numberedCovers){
+    if(await fileExists(coverFile)) return coverFile;
+  }
+  
+  // Fallback to global image
+  return globalCoverImage;
+}
+
+async function loadMusic(){
+  const found = await scanAudioFiles();
+
+  tracks = [];
+  for(let i = 0; i < found.length; i++){
+    const file = found[i];
+    const cover = await findCoverForTrack(file, i);
+    
+    tracks.push({
+      file: file,
+      title: getTrackTitle(file),
+      artist: "AXION",
+      cover: cover
+    });
+  }
+
+  if(!tracks.length){
+    musicGrid.innerHTML = `
+      <div class="empty">
+        <i class="fas fa-music"></i>
+        <h3>Music Loading</h3>
+        <p>New tracks dropping soon. Stay tuned.</p>
+      </div>`;
+    return;
+  }
+
+  musicGrid.innerHTML = tracks.map((track,index)=>`
+    <article class="music-card" data-index="${index}">
+      <div class="cover">
+        ${track.cover ? `<img src="${track.cover}" alt="${track.title}">` : `<span class="cover-number">${String(index+1).padStart(2,"0")}</span>`}
+        <button class="cover-play" onclick="playTrack(${index})" aria-label="Play track">
+          <i class="fas fa-play"></i>
+        </button>
+      </div>
+      <div class="track-info">
+        <div class="track-title">${track.title}</div>
+        <div class="track-artist">${track.artist}</div>
+        <audio id="audio-${index}" src="${track.file}" preload="metadata"></audio>
+        <div class="track-actions">
+          <button class="track-btn" onclick="playTrack(${index})"><i class="fas fa-play"></i><span>Play</span></button>
+          <button class="track-btn" onclick="shareTrack(${index})"><i class="fas fa-share-nodes"></i><span>Share</span></button>
+          <button class="track-btn" onclick="downloadTrack(${index})"><i class="fas fa-download"></i><span>Download</span></button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  document.querySelectorAll("#musicGrid audio").forEach(audio=>{
+    audio.addEventListener("ended",()=>{
+      const index=Number(audio.id.replace("audio-",""));
+      if(index===currentIndex){
+        if(index<tracks.length-1) playTrack(index+1);
+        else stopTrack();
+      }
+    });
+  });
+}
+
+function playTrack(index){
+  const audio=$(`audio-${index}`);
+  if(!audio) return;
+
+  if(currentAudio && currentAudio!==audio){
+    currentAudio.pause();
+    currentAudio.currentTime=0;
+    updateTrackButton(currentIndex,false);
+  }
+
+  if(currentAudio===audio && !audio.paused){
+    audio.pause();
+    updateTrackButton(index,false);
+    updatePlayer(false);
+    return;
+  }
+
+  currentAudio=audio;
+  currentIndex=index;
+  audio.volume=Number(volumeControl.value);
+
+  audio.play().then(()=>{
+    player.classList.add("show");
+    updatePlayerInfo(index);
+    updateTrackButton(index,true);
+    updatePlayer(true);
+  }).catch(()=>{
+    showToast("This audio file could not be played.");
+  });
+}
+
+function updatePlayerInfo(index){
+  const track=tracks[index];
+  if(!track)return;
+  playerTitle.textContent=track.title;
+  playerArtist.textContent=track.artist;
+  if(track.cover) playerCover.innerHTML=`<img src="${track.cover}" alt="">`;
+  else playerCover.innerHTML=`<i class="fas fa-music"></i>`;
+}
+
+function updatePlayer(playing){
+  mainPlayBtn.innerHTML=playing ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+}
+
+function updateTrackButton(index,playing){
+  document.querySelectorAll(".music-card .track-btn:first-of-type").forEach(btn=>{
+    btn.innerHTML='<i class="fas fa-play"></i><span>Play</span>';
+  });
+  const card=document.querySelector(`.music-card[data-index="${index}"]`);
+  if(card){
+    const btn=card.querySelector(".track-btn");
+    btn.innerHTML=playing ? '<i class="fas fa-pause"></i><span>Pause</span>' : '<i class="fas fa-play"></i><span>Play</span>';
+  }
+}
+
+function stopTrack(){
+  if(currentAudio) currentAudio.pause();
+  updateTrackButton(currentIndex,false);
+  updatePlayer(false);
+}
+
+mainPlayBtn.addEventListener("click",()=>{
+  if(!currentAudio){
+    if(tracks.length)playTrack(0);
+    return;
+  }
+  if(currentAudio.paused){
+    currentAudio.play().then(()=>{
+      updatePlayer(true);
+      updateTrackButton(currentIndex,true);
+    });
+  }else{
+    currentAudio.pause();
+    updatePlayer(false);
+    updateTrackButton(currentIndex,false);
+  }
+});
+
+$("nextBtn").addEventListener("click",()=>{
+  if(!tracks.length)return;
+  playTrack(currentIndex>=tracks.length-1?0:currentIndex+1);
+});
+
+$("prevBtn").addEventListener("click",()=>{
+  if(!tracks.length)return;
+  if(currentAudio && currentAudio.currentTime>3){currentAudio.currentTime=0;return}
+  playTrack(currentIndex<=0?tracks.length-1:currentIndex-1);
+});
+
+volumeControl.addEventListener("input",()=>{
+  if(currentAudio)currentAudio.volume=Number(volumeControl.value);
+});
+
+function downloadTrack(index){
+  const track=tracks[index];
+  if(!track)return;
+  const link=document.createElement("a");
+  link.href=track.file;
+  link.download=track.file;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+function shareTrack(index){
+  const track=tracks[index];
+  if(!track)return;
+  const url=new URL(track.file,location.href).href;
+  if(navigator.share){
+    navigator.share({title:track.title,text:"Listen to AXION",url}).catch(()=>{});
+  }else{
+    navigator.clipboard?.writeText(url);
+    showToast("Track link copied");
+  }
+}
+
+musicSearch.addEventListener("input",e=>{
+  const q=e.target.value.trim().toLowerCase();
+  document.querySelectorAll(".music-card").forEach(card=>{
+    const text=card.textContent.toLowerCase();
+    card.style.display=text.includes(q)?"":"none";
+  });
+});
+
+async function loadVideos(){
+  const found = await scanVideoFiles();
+
+  if(!found.length){
+    videoGrid.innerHTML=`
+      <div class="empty">
+        <i class="fas fa-video-slash"></i>
+        <h3>Videos Loading</h3>
+        <p>Visuals coming soon. Subscribe for updates.</p>
+      </div>`;
+    return;
+  }
+
+  videoGrid.innerHTML=found.map((file,index)=>`
+    <article class="video-card">
+      <div class="video-wrapper">
+        <video controls preload="metadata" playsinline>
+          <source src="${file}" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-info">
+        <h3>${getTrackTitle(file)}</h3>
+        <p>Official AXION video</p>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* =========================================================
+   EVENT LOADER - Reads from event.txt
+   Create event.txt in the same folder with:
+   Date: December 15, 2026
+   Venue: Lagos, Nigeria
+   Tickets: ₦5,000
+========================================================= */
+
+async function loadEvents(){
+  try{
+    const response = await fetch("event.txt?t=" + Date.now());
+    if(!response.ok) return;
+    
+    const text = await response.text();
+    const lines = text.split("\n");
+    const data = {};
+    
+    lines.forEach(line => {
+      const parts = line.split(":");
+      if(parts.length >= 2) {
+        const key = parts[0].trim().toLowerCase();
+        const value = parts.slice(1).join(":").trim();
+        if(key && value) {
+          data[key] = value;
+        }
+      }
+    });
+    
+    if(data.date) {
+      const dateEl = document.getElementById("eventDate");
+      if(dateEl) dateEl.textContent = data.date;
+    }
+    if(data.venue) {
+      const venueEl = document.getElementById("eventVenue");
+      if(venueEl) venueEl.textContent = data.venue;
+    }
+    if(data.tickets) {
+      const ticketsEl = document.getElementById("eventTickets");
+      if(ticketsEl) ticketsEl.textContent = data.tickets;
+    }
+    
+    if(data.date && data.venue && data.tickets) {
+      showToast("📅 New event announced!");
+    }
+    
+  }catch(e){
+    // File doesn't exist, keep default text
+  }
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.code==="Space" && !["INPUT","TEXTAREA"].includes(e.target.tagName)){
+    e.preventDefault();mainPlayBtn.click();
+  }
+  if(e.code==="ArrowRight" && currentAudio)$("nextBtn").click();
+  if(e.code==="ArrowLeft" && currentAudio)$("prevBtn").click();
+});
+
+$("year").textContent=new Date().getFullYear();
+
+window.addEventListener("load",async()=>{
+  await loadArtistImage();
+  await loadMusic();
+  await loadVideos();
+  await loadEvents();
+  setTimeout(()=>loader.classList.add("hidden"),500);
+});
+
+window.playTrack=playTrack;
+window.downloadTrack=downloadTrack;
+window.shareTrack=shareTrack;
+</script>
+</body>
+</html>
